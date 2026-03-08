@@ -1,0 +1,24 @@
+http:
+  routers:
+    frontend:
+      rule: "Host(`app.localhost`)"
+      entryPoints:
+        - web
+      service: frontend
+
+    api:
+      rule: "Host(`api.localhost`)"
+      entryPoints:
+        - web
+      service: api
+
+  services:
+    frontend:
+      loadBalancer:
+        servers:
+          - url: "http://crud_frontend:80"
+
+    api:
+      loadBalancer:
+        servers:
+          - url: "http://crud_nginx:80"

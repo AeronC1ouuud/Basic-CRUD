@@ -1,0 +1,17 @@
+api:
+  dashboard: true
+  insecure: true          # dashboard available at http://localhost:8080
+
+entryPoints:
+  web:
+    address: ":80"
+
+providers:
+  file:
+    filename: /etc/traefik/dynamic.yml
+    watch: true
+
+log:
+  level: INFO
+
+accessLog: {}
