@@ -1,9 +1,13 @@
-.PHONY: up down build restart logs migrate seed key shell-php shell-db ps
+.PHONY: up down run build restart logs migrate seed key shell-php shell-db ps
 
 DOCKER := sg docker -c
 
 ## Build and start all containers
 up:
+	$(DOCKER) "docker compose up -d --build"
+
+## Alias for up
+run:
 	$(DOCKER) "docker compose up -d --build"
 
 ## Stop all containers

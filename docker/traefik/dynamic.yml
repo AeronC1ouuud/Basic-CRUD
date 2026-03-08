@@ -1,7 +1,7 @@
 http:
   routers:
     frontend:
-      rule: "Host(`app.localhost`)"
+      rule: "Host(`app.localhost`) || Host(`crud.test`)"
       entryPoints:
         - web
       service: frontend
